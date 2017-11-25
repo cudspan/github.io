@@ -1,0 +1,62 @@
+<searchRoot>
+
+    <searchRecord file="_Content/4D_Intro.xml" name="4D Pubs: Distributed Dynamic Document Display">
+        <title>
+            <content><w w="" c="1"/><w w="pub" c="1"/><w w="distribut" c="1"/><w w="dynam" c="1"/><w w="document" c="1"/><w w="displai" c="1"/></content>
+        </title>
+        <body>
+            <content><w w="displai" c="1"/><w w="web" c="1"/><w w="applic" c="1"/><w w="fly" c="1"/><w w="processor" c="1"/><w w="provid" c="1"/><w w="it" c="1"/><w w="impos" c="1"/><w w="some" c="1"/><w w="agil" c="1"/><w w="flow" c="1"/><w w="each" c="1"/><w w="cycl" c="1"/><w w="skin" c="1"/><w w="edit" c="1"/><w w="look" c="1"/><w w="feel" c="1"/><w w="via" c="1"/><w w="page" c="1"/><w w="interven" c="1"/><w w="at" c="1"/><w w="last" c="1"/><w w="minut" c="1"/><w w="exampl" c="1"/><w w="filter" c="1"/><w w="accord" c="1"/><w w="role" c="1"/><w w="process" c="1"/><w w="real" c="1"/><w w="cross" c="1"/><w w="through" c="1"/><w w="cgi" c="1"/><w w="servlet" c="1"/><w w="stitch" c="1"/><w w="bodi" c="1"/><w w="becaus" c="1"/><w w="affect" c="1"/><w w="size" c="1"/><w w="theori" c="1"/><w w="reduc" c="1"/><w w="fact" c="1"/><w w="meant" c="1"/><w w="be" c="1"/><w w="smaller" c="1"/><w w="than" c="1"/><w w="full" c="1"/><w w="chapter" c="1"/><w w="project" c="1"/><w w="gutenberg" c="1"/><w w="public" c="1"/><w w="outlin" c="1"/><w w="scienc" c="1"/><w w="fairli" c="1"/><w w="larg" c="1"/><w w="doesn" c="1"/><w w="show" c="1"/><w w="notic" c="1"/><w w="degrad" c="1"/><w w="theoret" c="1"/><w w="number" c="1"/><w w="handl" c="1"/><w w="could" c="1"/><w w="store" c="1"/><w w="server" c="1"/><w w="over" c="1"/><w w="pose" c="1"/><w w="creat" c="1"/><w w="busi" c="1"/><w w="onlin" c="1"/><w w="have" c="1"/><w w="addit" c="1"/><w w="will" c="1"/><w w="requir" c="1"/><w w="combin" c="1"/><w w="javascript" c="1"/><w w="css" c="1"/><w w="develop" c="1"/><w w="mean" c="1"/><w w="restrict" c="1"/><w w="cours" c="1"/><w w="other" c="1"/><w w="illustr" c="1"/><w w="most" c="1"/><w w="obviou" c="1"/><w w="candid" c="1"/><w w="list" c="1"/><w w="understand" c="1"/><w w="how" c="1"/><w w="repositori" c="1"/><w w="includ" c="1"/><w w="an" c="1"/><w w="port" c="1"/><w w="pull" c="1"/><w w="subset" c="1"/><w w="gui" c="1"/><w w="wai" c="1"/><w w="integr" c="1"/><w w="interfac" c="1"/><w w="dynam" c="2"/><w w="document" c="2"/><w w="sourc" c="2"/><w w="html" c="2"/><w w="on" c="2"/><w w="request" c="2"/><w w="also" c="2"/><w w="work" c="2"/><w w="no" c="2"/><w w="need" c="2"/><w w="gener" c="2"/><w w="user" c="2"/><w w="or" c="2"/><w w="when" c="2"/><w w="enabl" c="2"/><w w="memori" c="2"/><w w="perform" c="2"/><w w="problem" c="2"/><w w="these" c="2"/><w w="there" c="2"/><w w="you" c="2"/><w w="servic" c="2"/><w w="specif" c="2"/><w w="case" c="2"/><w w="doe" c="2"/><w w="not" c="2"/><w w="all" c="2"/><w w="help" c="2"/><w w="product" c="2"/><w w="distribut" c="3"/><w w="execut" c="3"/><w w="us" c="3"/><w w="benefit" c="3"/><w w="for" c="3"/><w w="content" c="3"/><w w="data" c="3"/><w w="load" c="3"/><w w="by" c="3"/><w w="note" c="3"/><w w="angularj" c="3"/><w w="pub" c="4"/><w w="is" c="4"/><w w="singl" c="4"/><w w="into" c="4"/><w w="browser" c="4"/><w w="xslt" c="4"/><w w="client" c="4"/><w w="limit" c="5"/><w w="ar" c="5"/><w w="topic" c="5"/><w w="we" c="5"/><w w="transform" c="6"/><w w="dita" c="6"/><w w="search" c="6"/><w w="implement" c="6"/><w w="can" c="7"/><w w="support" c="7"/><w w="that" c="8"/><w w="and" c="9"/><w w="thi" c="10"/><w w="to" c="10"/><w w="of" c="10"/><w w="a" c="12"/><w w="in" c="13"/><w w="the" c="20"/><w w="" c="23"/></content>
+        </body>
+        <keywords>
+            <content></content>
+        </keywords>
+    </searchRecord>
+
+    <searchRecord file="_Content/ReposContent.xml" name="Repository Content">
+        <title>
+            <content><w w="repositori" c="1"/><w w="content" c="1"/></content>
+        </title>
+        <body>
+            <content><w w="upload" c="1"/><w w="angularj" c="1"/><w w="set" c="1"/><w w="up" c="1"/><w w="webstorm" c="1"/><w w="divid" c="1"/><w w="into" c="1"/><w w="possibl" c="1"/><w w="other" c="1"/><w w="open" c="1"/><w w="differ" c="1"/><w w="sampl" c="1"/><w w="singl" c="1"/><w w="page" c="1"/><w w="bound" c="1"/><w w="data" c="1"/><w w="manag" c="1"/><w w="by" c="1"/><w w="direct" c="1"/><w w="servic" c="1"/><w w="modul" c="1"/><w w="asset" c="1"/><w w="style" c="1"/><w w="extern" c="1"/><w w="js" c="1"/><w w="lib" c="1"/><w w="note" c="1"/><w w="it" c="1"/><w w="with" c="1"/><w w="valu" c="1"/><w w="for" c="1"/><w w="attr" c="1"/><w w="jsfunction" c="1"/><w w="turn" c="1"/><w w="extensionservic" c="1"/><w w="execut" c="1"/><w w="function" c="1"/><w w="buildreflist" c="1"/><w w="result" c="1"/><w w="relat" c="1"/><w w="deriv" c="1"/><w w="from" c="1"/><w w="toc" c="1"/><w w="entri" c="1"/><w w="lie" c="1"/><w w="under" c="1"/><w w="specif" c="1"/><w w="topic" c="1"/><w w="includ" c="1"/><w w="here" c="1"/><w w="show" c="1"/><w w="exampl" c="1"/><w w="dynam" c="1"/><w w="repositori" c="2"/><w w="project" c="2"/><w w="in" c="2"/><w w="index" c="2"/><w w="file" c="2"/><w w="implement" c="2"/><w w="app" c="2"/><w w="angular" c="2"/><w w="directori" c="2"/><w w="contain" c="2"/><w w="list" c="2"/><w w="gener" c="2"/><w w="as" c="2"/><w w="conref" c="2"/><w w="call" c="2"/><w w="conrefservic" c="2"/><w w="content" c="3"/><w w="an" c="3"/><w w="of" c="3"/><w w="and" c="3"/><w w="to" c="3"/><w w="link" c="3"/><w w="thi" c="4"/><w w="follow" c="4"/><w w="a" c="4"/><w w="" c="5"/><w w="that" c="6"/><w w="is" c="7"/><w w="the" c="15"/></content>
+        </body>
+        <keywords>
+            <content></content>
+        </keywords>
+    </searchRecord>
+
+    <searchRecord file="_Content/ReposContent_app.xml" name="Directory">
+        <title>
+            <content><w w="directori" c="1"/></content>
+        </title>
+        <body>
+            <content><w w="contain" c="1"/><w w="file" c="1"/><w w="pub" c="1"/><w w="compon" c="1"/><w w="displai" c="1"/><w w="widget" c="1"/><w w="direct" c="1"/><w w="util" c="1"/><w w="logic" c="1"/><w w="servic" c="1"/><w w="configservic" c="1"/><w w="load" c="1"/><w w="config" c="1"/><w w="data" c="1"/><w w="into" c="1"/><w w="conref" c="1"/><w w="extensionservic" c="1"/><w w="arbitrari" c="1"/><w w="js" c="1"/><w w="can" c="1"/><w w="be" c="1"/><w w="call" c="1"/><w w="by" c="1"/><w w="result" c="1"/><w w="searchservic" c="1"/><w w="search" c="1"/><w w="tocservic" c="1"/><w w="build" c="1"/><w w="toc" c="1"/><w w="out" c="1"/><w w="of" c="1"/><w w="ditamap" c="1"/><w w="transformservic" c="1"/><w w="xslt" c="1"/><w w="transform" c="1"/><w w="top" c="1"/><w w="imag" c="1"/><w w="for" c="1"/><w w="banner" c="1"/><w w="etc" c="1"/><w w="javascript" c="1"/><w w="librari" c="1"/><w w="and" c="1"/><w w="stemmer" c="1"/><w w="directori" c="2"/><w w="that" c="2"/><w w="angular" c="2"/><w w="these" c="2"/><w w="as" c="2"/><w w="conrefservic" c="2"/><w w="expand" c="2"/><w w="inlin" c="2"/><w w="topic" c="2"/><w w="function" c="2"/><w w="a" c="2"/><w w="jqueri" c="2"/><w w="includ" c="3"/><w w="in" c="4"/><w w="app" c="5"/><w w="the" c="6"/><w w="implement" c="6"/><w w="" c="8"/></content>
+        </body>
+        <keywords>
+            <content></content>
+        </keywords>
+    </searchRecord>
+
+    <searchRecord file="_Content/ReposContent_assets.xml" name="Directory">
+        <title>
+            <content><w w="directori" c="1"/></content>
+        </title>
+        <body>
+            <content><w w="ar" c="1"/><w w="us" c="1"/><w w="by" c="1"/><w w="app" c="1"/><w w="present" c="1"/><w w="it" c="1"/><w w="follow" c="1"/><w w="doc" c="1"/><w w="data" c="1"/><w w="such" c="1"/><w w="as" c="1"/><w w="search" c="1"/><w w="index" c="1"/><w w="map" c="1"/><w w="link" c="1"/><w w="arbitrari" c="1"/><w w="id" c="1"/><w w="graphic" c="1"/><w w="content" c="1"/><w w="ditamap" c="1"/><w w="xslt" c="1"/><w w="top" c="1"/><w w="banner" c="1"/><w w="etc" c="1"/><w w="javascript" c="1"/><w w="librari" c="1"/><w w="angular" c="1"/><w w="stemmer" c="1"/><w w="asset" c="2"/><w w="contain" c="2"/><w w="that" c="2"/><w w="public" c="2"/><w w="includ" c="2"/><w w="css" c="2"/><w w="and" c="2"/><w w="imag" c="2"/><w w="jqueri" c="2"/><w w="" c="3"/><w w="to" c="3"/><w w="a" c="3"/><w w="for" c="3"/><w w="topic" c="3"/><w w="directori" c="4"/><w w="the" c="5"/><w w="file" c="7"/></content>
+        </body>
+        <keywords>
+            <content></content>
+        </keywords>
+    </searchRecord>
+
+    <searchRecord file="_Content/ReposContent_index.xml" name="File">
+        <title>
+            <content><w w="file" c="1"/></content>
+        </title>
+        <body>
+            <content><w w="implement" c="1"/><w w="singl" c="1"/><w w="page" c="1"/><w w="serv" c="1"/><w w="follow" c="1"/><w w="link" c="1"/><w w="css" c="1"/><w w="angular" c="1"/><w w="bind" c="1"/><w w="bodi" c="1"/><w w="tag" c="1"/><w w="main" c="1"/><w w="button" c="1"/><w w="element" c="1"/><w w="variou" c="1"/><w w="direct" c="1"/><w w="model" c="1"/><w w="configur" c="1"/><w w="config" c="1"/><w w="such" c="1"/><w w="for" c="1"/><w w="path" c="1"/><w w="differ" c="1"/><w w="directori" c="1"/><w w="root" c="1"/><w w="document" c="1"/><w w="ditamap" c="1"/><w w="content" c="1"/><w w="other" c="1"/><w w="lai" c="1"/><w w="out" c="1"/><w w="pub" c="1"/><w w="when" c="1"/><w w="you" c="1"/><w w="open" c="1"/><w w="json" c="1"/><w w="object" c="1"/><w w="default" c="1"/><w w="it" c="1"/><w w="function" c="2"/><w w="js" c="2"/><w w="includ" c="2"/><w w="a" c="2"/><w w="div" c="2"/><w w="control" c="2"/><w w="as" c="2"/><w w="will" c="2"/><w w="xslt" c="2"/><w w="topic" c="2"/><w w="displai" c="2"/><w w="index" c="3"/><w w="declar" c="3"/><w w="search" c="3"/><w w="us" c="3"/><w w="public" c="3"/><w w="gener" c="3"/><w w="load" c="3"/><w w="map" c="4"/><w w="toc" c="4"/><w w="thi" c="5"/><w w="and" c="5"/><w w="data" c="5"/><w w="" c="7"/><w w="app" c="9"/><w w="to" c="10"/><w w="file" c="12"/><w w="the" c="20"/></content>
+        </body>
+        <keywords>
+            <content></content>
+        </keywords>
+    </searchRecord>
+</searchRoot>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE termentry PUBLIC "-//DOCTALES//DTD DITA DOCTALES Termentry//EN" "termentry.dtd">
+<termentry id="engine">
+  <title>Engine</title>
+  <definition>
+    <definitionText>An engine is a machine designed to convert one form of energy into mechanical
+      energy.</definitionText>
+    <definitionSource>
+      <sourceReference href="https://en.wikipedia.org/wiki/Engine" format="html" scope="external"
+        >Wikipedia</sourceReference>
+    </definitionSource>
+  </definition>
+  <termBody>
+    <fig>
+      <title> Animated scheme of a four stroke internal combustion engine</title>
+      <image
+        href="https://upload.wikimedia.org/wikipedia/commons/d/dc/4StrokeEngine_Ortho_3D_Small.gif"
+        width="200px">
+        <alt>https://creativecommons.org/licenses/by-sa/3.0/deed.en</alt>
+      </image>
+    </fig>
+    <partOfSpeech value="noun"/>
+    <fullForm language="en-GB" usage="preferred">
+      <termVariant>engine </termVariant>
+    </fullForm>
+    <fullForm language="en-GB" usage="notRecommended">
+      <termVariant>motor</termVariant>
+    </fullForm>
+    <fullForm language="de-DE" usage="preferred">
+      <termVariant>Motor</termVariant>
+    </fullForm>
+  </termBody>
+  <relations>
+    <hyponyms>
+      <hyponym keyref="internalCombustionEngine"/>
+    </hyponyms>
+    <partsOf>
+      <partOf keyref="truck"/>
+      <partOf keyref="car"/>
+    </partsOf>
+  </relations>
+</termentry>

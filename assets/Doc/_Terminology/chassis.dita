@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE termentry PUBLIC "-//DOCTALES//DTD DITA DOCTALES Termentry//EN" "termentry.dtd">
+<termentry id="chassis">
+ <title>Chassis</title>
+ <definition>
+  <definitionText>A chassis consists of an internal vehicle frame that supports a manmade object in
+      its construction and use.</definitionText>
+  <definitionSource>
+    <sourceReference href="https://en.wikipedia.org/wiki/Chassis" format="html" scope="external"
+        >Wikipedia</sourceReference>
+  </definitionSource>
+ </definition>
+ <termBody>
+    <fig>
+      <title>Motor vehicle chassis with its suspension, exhaust system, and steering box</title>
+      <image
+        href="https://upload.wikimedia.org/wikipedia/commons/1/11/Chassis_with_suspension_and_exhaust_system.jpg"
+        width="600px">
+        <alt>By English: CZmarlin — Christopher Ziemnowicz [CC BY-SA 2.5
+          (http://creativecommons.org/licenses/by-sa/2.5)], via Wikimedia Commons</alt>
+      </image>
+    </fig>
+  <partOfSpeech value="noun"/>
+  <fullForm usage="preferred" language="en-GB">
+      <termVariant>motor vehicle chassis</termVariant>
+    </fullForm>
+    <fullForm language="en-GB" usage="admitted">
+      <termVariant>chassis</termVariant>
+    </fullForm>
+    <fullForm language="en-GB" usage="notRecommended">
+      <termVariant>vehicle frame</termVariant>
+    </fullForm>
+    <fullForm language="de-DE" usage="preferred">
+      <termVariant>Fahrgestell</termVariant>
+    </fullForm>
+    <fullForm language="de-DE" usage="admitted">
+      <termVariant>Karosserie</termVariant>
+    </fullForm>
+    <fullForm language="de-DE" usage="notRecommended">
+      <termVariant>Rahmen</termVariant>
+    </fullForm>
+    <fullForm language="de-DE" usage="notRecommended">
+      <termVariant>Fahrwerk</termVariant>
+    </fullForm>
+ </termBody>
+  <relations>
+    <partsOf>
+      <partOf keyref="bus"/>
+      <partOf keyref="car"/>
+    </partsOf>
+    <relatedTerms>
+      <relatedTerm keyref="coachwork"/>
+    </relatedTerms>
+  </relations>
+</termentry>

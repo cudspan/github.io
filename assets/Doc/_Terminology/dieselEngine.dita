@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE termentry PUBLIC "-//DOCTALES//DTD DITA DOCTALES Termentry//EN" "termentry.dtd">
+<termentry id="dieselEngine">
+ <title>Diesel engine</title>
+ <definition>
+  <definitionText>The diesel engine (also known as a compression-ignition or CI engine) is an
+      internal combustion engine in which ignition of the fuel that has been injected into the
+      combustion chamber is caused by the high temperature which a gas achieves when greatly
+      compressed (adiabatic compression).</definitionText>
+  <definitionSource>
+    <sourceReference href="https://en.wikipedia.org/wiki/Diesel_engine" format="html"
+        scope="external">Wikipedia</sourceReference>
+  </definitionSource>
+ </definition>
+ <termBody>
+    <fig>
+      <title>A diesel engine built by MAN AG in 1906</title>
+      <image href="https://upload.wikimedia.org/wikipedia/commons/a/a8/Dieselmotor_vs.jpg"
+        width="300px">
+        <alt>By Flominator (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html), CC-BY-SA-3.0
+          (http://creativecommons.org/licenses/by-sa/3.0/) or CC BY-SA 2.5-2.0-1.0
+          (http://creativecommons.org/licenses/by-sa/2.5-2.0-1.0)], via Wikimedia Commons</alt>
+      </image>
+    </fig>
+  <partOfSpeech value="noun"/>
+  <fullForm usage="preferred" language="en">
+   <termVariant>diesel enginge</termVariant>
+  </fullForm>
+    <fullForm language="de-DE" usage="preferred">
+      <termVariant>Dieselmotor</termVariant>
+    </fullForm>
+ </termBody>
+  <relations>
+    <hypernyms>
+      <hypernym keyref="internalCombustionEngine"/>
+    </hypernyms>
+    <partsOf>
+      <partOf keyref="bus"/>
+      <partOf keyref="car"/>
+      <partOf keyref="truck"/>
+    </partsOf>
+  </relations>
+</termentry>

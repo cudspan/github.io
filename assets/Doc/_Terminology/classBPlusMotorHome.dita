@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE termentry PUBLIC "-//DOCTALES//DTD DITA DOCTALES Termentry//EN" "termentry.dtd">
+<termentry id="classBPlusMotorHome">
+  <title>Class B+ motorhome</title>
+  <definition>
+    <definitionText>Class B+ motorhomes are either built on a truck or van chassis. They usually
+      include a "cab-over" section.</definitionText>
+    <definitionSource>
+      <sourceReference
+        href="https://en.wikipedia.org/wiki/List_of_recreational_vehicles#Class_B.2B_motorhome"
+        format="html" scope="external">Wikipedia</sourceReference>
+    </definitionSource>
+  </definition>
+  <termBody>
+    <fig>
+      <title>A Hymer Coachbuilt Motorhome</title>
+      <image href="https://upload.wikimedia.org/wikipedia/commons/3/32/Hymer-Motorhome.JPG"
+        width="600px">
+        <alt>https://creativecommons.org/licenses/by-sa/3.0/deed.en</alt>
+      </image>
+    </fig>
+    <partOfSpeech value="noun"/>
+    <fullForm usage="preferred" language="en-GB">
+      <termVariant>coachbuilt motorhome</termVariant>
+    </fullForm>
+    <fullForm language="en-GB" usage="preferred">
+      <termVariant>Class B+ motorhome</termVariant>
+    </fullForm>
+    <fullForm language="de-DE" usage="preferred">
+      <termVariant>teilintegriertes Wohnmobil</termVariant>
+    </fullForm>
+    <fullForm language="de-DE" usage="notRecommended">
+      <termVariant>Alkovenwohnmobil</termVariant>
+    </fullForm>
+  </termBody>
+  <relations>
+    <hypernyms>
+      <hypernym keyref="motorHome"/>
+    </hypernyms>
+    <relatedTerms>
+      <relatedTerm keyref="classCMotorHome"/>
+    </relatedTerms>
+  </relations>
+</termentry>

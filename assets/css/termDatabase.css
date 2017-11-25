@@ -1,0 +1,48 @@
+
+div.TermEntry {margin-top: 10px; }
+
+div.definitionText {
+	margin-top: 10px;
+	font-size: 12pt; }
+
+div.PartOfSpeech {margin-top: 4px; }
+
+div.FullForm_preferred {
+	background-color: #a6eba5;
+	border-style: solid;
+	border-width: 1px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	}
+
+div.FullForm_notRecommended {
+	background-color: #f67f7f;
+	border-style: solid;
+	border-width: 1px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+div.FullForm_admitted {
+	background-color: #ede6e6;
+	border-style: solid;
+	border-width: 1px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+div.usage_p {margin-top: 2px; }
+div.termVariant {margin-top: 10px; }
+
+div.TermBody {margin-top: 10px; }
+
+div.fig_title {
+	margin-top: 10px;
+	font-style: italic; }
+
+div.definitionSource {margin-top: 4px; }
+
+div.sourceReference {margin-top: 4px; }
+
+div.sourceReference {margin-top: 4px; }
+
