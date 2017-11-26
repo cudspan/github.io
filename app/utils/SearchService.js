@@ -204,7 +204,7 @@ var doStem = function(w) {
 
 
 angular
-    .module ('vmturbo.doc.SearchService', [])
+    .module ('4D')
     .factory ('SearchService', ['$window', '$rootScope', 'TransformService', function($window, $rootScope, TransformService) {
 
 

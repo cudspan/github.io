@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="4D">
 
 <head>
     <meta charset="utf-8">
@@ -11,41 +11,45 @@
     <title page-title>4D Pubs</title>
 
 
-    <link href="assets/Doc/css/FourD_CSS/vmtHelp.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/Doc/css/FourD_CSS/ui.fancytree.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/vmtHelp.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/skin-win8/ui.fancytree.css" rel="stylesheet" type="text/css"/>
 
 
     <!-- Main Angular scripts-->
-    <script src="assets/js/angular/angular.js"></script>
-    <script src="assets/js/angular/angular-cookies.js"></script>
+    <script src="assets/js/angular/angular.min.js"></script>
+    <script src="assets/js/angular/angular-cookies.min.js"></script>
     <script src="assets/js/angular/angular-filter.js"></script>
-    <script src="assets/js/angular/angular-route.js"></script>
+    <script src="assets/js/angular/angular-route.min.js"></script>
 
     <!-- jQuery and Others -->
     <script src="assets/js/jquery/jquery-2.1.1.min.js"></script>
     <script src="assets/js/jquery/jquery-ui-1.10.4.min.js"></script>
-    <script src="assets/js/doc/jquery.fancytree-all.min.js"></script>
-    <script src="assets/js/doc/Stemmer.js"></script>
-    <script src="assets/js/doc/map.js"></script>
+    <script src="assets/js/jquery.fancytree-all.min.js"></script>
+    <script src="assets/js/Stemmer.js"></script>
 
     <!-- Anglar App Scripts -->
-    <script src="app/doc/doc.module.js"></script>
-    <script src="app/doc/doc.controllers.js"></script>
 
-    <script src="app/doc/TransformService.js"></script>
-    <script src="app/doc/TocService.js"></script>
-    <script src="app/doc/SearchService.js"></script>
-    <script src="app/doc/ConrefService.js"></script>
-    <script src="app/doc/DomUtilService.js"></script>
-    <script src="app/doc/ExtensionService.js"></script>
-    <script src="app/doc/KeyrefDataService.js"></script>
-    <script src="app/doc/KeyrefProcessService.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.controllers.js"></script>
 
-    <script src="app/doc/doc.search.directive.js"></script>
+    <script src="app/utils/TransformService.js"></script>
+    <script src="app/utils/TocService.js"></script>
+    <script src="app/utils/SearchService.js"></script>
+    <script src="app/utils/ConrefService.js"></script>
+    <script src="app/utils/ConfigService.js"></script>
 
 
+    <!--
+    <script src="app/components/widgets/widgets.topicWin.directive.js"></script>
+    <script src="app/components/widgets/widgets.treeToc.directive.js"></script>
+    -->
+    <script src="app/components/widgets/widgets.search.directive.js"></script>
 
+    <!-- Global Scripts -->
+    <script src="assets/Doc/data/map.js"></script>
 
+    <!-- Custom Functions -->
+    <script src="app/utils/ExtensionService.js"></script>
 
 
     <!-- Override fancytree... -->
@@ -128,7 +132,7 @@
 
 </head>
 
-<body id="appBody" ng-app="vmturbo.doc">
+<body id="appBody" ng-app="4D">
 
 <div id="angularThing" ng-controller="TopicCtrl as mainCtrl">
 

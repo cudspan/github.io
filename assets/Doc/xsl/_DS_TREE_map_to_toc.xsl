@@ -22,82 +22,45 @@ BOGUS<!-- To start off the array... -->
   <xsl:variable name="title">
     <xsl:apply-templates select="." mode="get-navtitle"/>
   </xsl:variable>
-  <xsl:variable name="titleTwo">
-    <xsl:apply-templates select="." mode="get-navtitle-elem"/>
-  </xsl:variable>
   <xsl:choose>
-    <xsl:when test="$title and $title !=''">
+    <xsl:when test="$title and $title!=''">
         <xsl:choose>
           <xsl:when test="ancestor::topicref">        
         	<xsl:apply-templates select="." mode="is_child">
         		<xsl:with-param name="ancestor_href"><xsl:value-of select="$ancestor_href"/></xsl:with-param>
-                <xsl:with-param name="navtitle"><xsl:apply-templates select="." mode="get-navtitle"/></xsl:with-param>
         	</xsl:apply-templates>
             <xsl:apply-templates select="topicref">
             </xsl:apply-templates>
           </xsl:when>
           <xsl:otherwise>        
         	<xsl:apply-templates select="." mode="is_chapter">
-                <xsl:with-param name="ancestor_href"><xsl:value-of select="$ancestor_href"/></xsl:with-param>
-                <xsl:with-param name="navtitle"><xsl:apply-templates select="." mode="get-navtitle"/></xsl:with-param>
+        		<xsl:with-param name="ancestor_href"><xsl:value-of select="$ancestor_href"/></xsl:with-param>
         	</xsl:apply-templates>
             <xsl:apply-templates select="topicref">
             </xsl:apply-templates>
           </xsl:otherwise>
         </xsl:choose>
     </xsl:when>
-
-      <xsl:when  test="$titleTwo and $titleTwo !=''">
-          <xsl:choose>
-              <xsl:when test="ancestor::topicref">
-                  <xsl:apply-templates select="." mode="is_child">
-                      <xsl:with-param name="ancestor_href"><xsl:value-of select="$ancestor_href"/></xsl:with-param>
-                      <xsl:with-param name="navtitle"><xsl:apply-templates select="." mode="get-navtitle-elem"/></xsl:with-param>
-                  </xsl:apply-templates>
-                  <xsl:apply-templates select="topicref">
-                  </xsl:apply-templates>
-              </xsl:when>
-              <xsl:otherwise>
-                  <xsl:apply-templates select="." mode="is_chapter">
-                      <xsl:with-param name="ancestor_href"><xsl:value-of select="$ancestor_href"/></xsl:with-param>
-                      <xsl:with-param name="navtitle"><xsl:apply-templates select="." mode="get-navtitle-elem"/></xsl:with-param>
-                  </xsl:apply-templates>
-                  <xsl:apply-templates select="topicref">
-                  </xsl:apply-templates>
-              </xsl:otherwise>
-          </xsl:choose>
-      </xsl:when>
   </xsl:choose>
 </xsl:template>
-<!-- Build chapts and children -->
+<!-- Build chapts and childrent -->
+<xsl:template match="*" mode="is_child">
+<xsl:param name="ancestor_href"/>
+|<xsl:value-of select="@href"/>+<xsl:value-of select="$ancestor_href"/>+<xsl:value-of select="@navtitle"/>
+</xsl:template>
 
-    <xsl:template match="*" mode="is_child">
-        <xsl:param name="ancestor_href"/>
-        <xsl:param name="navtitle"/>
-        |<xsl:value-of select="@href"/>+<xsl:value-of select="$ancestor_href"/>+<xsl:value-of select="$navtitle"/>
-    </xsl:template>
-
-    <xsl:template match="*" mode="is_chapter">
-        <xsl:param name="ancestor_href"/>
-        <xsl:param name="navtitle"/>
-        |<xsl:value-of select="@href"/>+root+<xsl:value-of select="$navtitle"/>
-    </xsl:template>
-
-
+<xsl:template match="*" mode="is_chapter">
+<xsl:param name="ancestor_href"/>
+|<xsl:value-of select="@href"/>+root+<xsl:value-of select="@navtitle"/>
+</xsl:template>
 
 <!-- Deprecating the named template in favor of the mode template. -->
 <xsl:template name="navtitle">
   <xsl:apply-templates select="." mode="get-navtitle"/>
 </xsl:template>
-    <xsl:template match="*" mode="get-navtitle">
-        <xsl:value-of select="@navtitle"/>
-    </xsl:template>
-    <xsl:template match="*" mode="get-navtitle-elem">
-        <xsl:apply-templates select="*" mode="get-navtitle-elem"/>
-    </xsl:template>
-    <xsl:template match="topicmeta" mode="get-navtitle-elem">
-        <xsl:value-of select="./navtitle"/>
-    </xsl:template>
+<xsl:template match="*" mode="get-navtitle">
+	<xsl:value-of select="@navtitle"/>
+</xsl:template>
 
 <xsl:template match="text()"/>
 

@@ -5,10 +5,10 @@
 
 
 (function () {
-    angular.module('vmturbo.doc').directive('searchDirective', function (SearchService, TocService) {
+    angular.module('4D').directive('searchDirective', function (SearchService, TocService) {
         return {
             restrict: 'EA',
-            templateUrl: 'templates/doc.search.html',
+            templateUrl: 'app/components/widgets/widgets.search.html',
             scope: {
                 highlightclass: '@',
                 highlightsrc: '@',
@@ -20,10 +20,10 @@
             controller: function($scope, $sce, $attrs){
 
 
-                $scope.highlightsrc = "./_graphics/Icons/highlightDone.png";
+                $scope.highlightsrc = "./assets/Doc/graphics/Icons/highlightDone.png";
                 $scope.highlightclass = "highlightButtonOn";
                 $scope.andorclass = "And";
-                $scope.andorsrc = "./_graphics/Icons/find_and.png";
+                $scope.andorsrc = "./assets/Doc/graphics/Icons/find_and.png";
                 $scope.searchterm = "";
 
                 $scope.searchobj = {};
@@ -46,15 +46,15 @@
                     if($scope.andorclass === "Or") {
                         $scope.andorclass = "And";
                         //alert("Changed class to " + $scope.class);
-                        $scope.andorsrc = "./_graphics/Icons/find_and.png";
+                        $scope.andorsrc = "./assets/Doc/graphics/Icons/find_and.png";
                     } else if($scope.andorclass === "And") {
                         $scope.andorclass = "Or";
                         //alert("Changed class to " + $scope.class);
-                        $scope.andorsrc = "./_graphics/Icons/find_or.png";
+                        $scope.andorsrc = "./assets/Doc/graphics/Icons/find_or.png";
                     } else {
                         $scope.andorclass = "And";
                         //alert("Initialized class to " + $scope.class);
-                        $scope.andorsrc = "./_graphics/Icons/find_and.png";
+                        $scope.andorsrc = "./assets/Doc/graphics/Icons/find_and.png";
                     }
 
                     var boolButton = document.getElementById("andOrButton");
@@ -65,11 +65,11 @@
 
                     if($scope.highlightclass === "highlightButtonOn") {
                         $scope.highlightclass = "highlightButtonOff";
-                        $scope.highlightsrc = "./_graphics/Icons/highlightToDo.png";
+                        $scope.highlightsrc = "./assets/Doc/graphics/Icons/highlightToDo.png";
                         SearchService.undoHighlight();
                     } else if($scope.highlightclass === "highlightButtonOff") {
                         $scope.highlightclass = "highlightButtonOn";
-                        $scope.highlightsrc = "./_graphics/Icons/highlightDone.png";
+                        $scope.highlightsrc = "./assets/Doc/graphics/Icons/highlightDone.png";
                         SearchService.doHighlight($scope.searchterm);
                     }
 

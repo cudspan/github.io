@@ -2,10 +2,10 @@
  * Created by kalel on 8/30/16.
  */
 (function () {
-    angular.module('vmturbo.doc').directive('treeToc', function (TransformService) {
+    angular.module('4D').directive('treeToc', function (TransformService) {
         return {
             restrict: 'EA',
-            templateUrl: 'templates/doc.treeToc.html',
+            templateUrl: 'app/components/widgets/widgets.treeToc.html',
             scope: {
                 mapContent: '@',
                 mapTransform: '@',
@@ -18,7 +18,7 @@
                 };
 
                 var errorCallback = function(response) {
-                    alert("ERROR TRANSFORMING FILE!!!\n"+response.resp.data);
+                    console.error("TreeTOC Directive: ERROR TRANSFORMING FILE!!!\n"+response.resp.data);
                 };
 
                 alert("TRANSFORM: "+$attrs.mapTransform+"\nMAP: "+$attrs.mapContent);

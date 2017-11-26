@@ -2,10 +2,12 @@
  * Created by kalel on 9/3/16.
  */
 angular
-    .module ('vmturbo.doc.TocService', [])
+    .module ('4D')
     .factory ('TocService', ['$window', '$rootScope', function($window, $rootScope) {
 
+
         var _tocTree = undefined;
+
         var currentNode;
 
         return{
@@ -21,19 +23,26 @@ angular
             },
 
             initToc : function(div) {
+                console.log("INIT TOC");
                 var tocResponse = function(node) {
                     currentNode = node;
+                    //console.log("tocResponse: "+node.key);
                     node.setExpanded();
+                    //$window.location.replace("#!"+node.key.replace('../',''));
+                    //*//////////
                     $rootScope.$broadcast('tocResponse', {
+                        //data: $window.location.href.split('#')[0]+"#topic="+node.key
+                        //data: "#!topic="+node.key
+                        // "data-123".replace('data-','');
                         data: "#!"+node.key.replace('../','') // Strip leading ../
                     });
+                    //*/////////////
                 };
 
                 var activatedItem = function(event, data) {
                     if(undefined === data) {
                         console.error("UNDEFINED DATA TO HANDLE TOC EVENT!");
                     } else {
-
                         currentNode = data.node;
                         tocResponse(data.node);
                     }
@@ -53,6 +62,11 @@ angular
                 var rootKey = rootNode.key;
 
                 currentNode = rootNode;
+
+
+                console.log("buildMainToc Root Node:\n"+$window.location.href.split('#')[0]+"#topic="+rootNode.key);
+
+                //var vmtLinkStart = rootDocName+"#topic="+topTopicDir;
                 var vmtLinkStart = rootDocName+"#!"+topTopicDir;
                 var vmtLinkEnd = "";
 
@@ -81,19 +95,12 @@ angular
             },
 
             getChildrenOfNodeByKey : function(keyStr) {
+                console.log("getChildrenOfNodeByKey: "+keyStr);
                 var keyNode = _tocTree.getNodeByKey(keyStr);
                 if(null === keyNode) {
                     return(null);
                 }
                 var children = keyNode.getChildren();
-                return(children);
-            },
-
-            getChildrenOfCurrentNode : function() {
-                if(null === currentNode || undefined === currentNode) {
-                    return(null);
-                }
-                var children = currentNode.getChildren();
                 return(children);
             },
 
@@ -115,15 +122,18 @@ angular
 
             highlightNodeForDefaultTopic : function(url) {
                 if(undefined === _tocTree) {
-                    //console.log("highlightNodeForDefaultTopic has undefined tocTree -- could be initial topic: "+url);
+                    console.error("highlightNodeForDefaultTopic has undefined tocTree");
                     return;
                 }
+                return;
                 // First clear current selection
                 _tocTree.getRootNode().visit(function(node){
                     node.setActive(false);
                     node.setSelected(false);
                 });
                 var keyStr = url;
+                console.log("highlightNodeForDefaultTopic HIGHLIGHTING NODE: "+url);
+                //console.log("highlightNodeForDefaultTopic: "+keyStr);
                 var node = _tocTree.getNodeByKey(keyStr);
 
                 // Now select the current one
@@ -131,7 +141,6 @@ angular
                     node.makeVisible();
                     node.scrollIntoView();
                     node.setSelected();
-                    currentNode = node;
                 }
             }
 

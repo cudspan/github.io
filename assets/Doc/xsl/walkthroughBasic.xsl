@@ -2,7 +2,13 @@
 
 <xsl:transform
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        version="1.0"
+        xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT"
+        xmlns:js="http://saxonica.com/ns/globalJS"
+        xmlns:style="http://saxonica.com/ns/html-property"
+
+        extension-element-prefixes="ixsl"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        version="2.0"
 >
 <xsl:output method="text"  indent="no"/>
 

@@ -2,18 +2,27 @@
 
 <xsl:transform
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        xmlns:xs="http://www.w3.org/2001/XMLSchema"
-        version="1.0">
 
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        version="2.0"
+>
     <xsl:output method="html"  indent="no"/>
 
-    <xsl:param name="topicPath"/>
-    <xsl:param name="topicNameParam"/>
-    <xsl:param name="shortFilename"/>
-    <xsl:param name="dv_vals"/>
-    <xsl:param name="dv_attr"/>
-    <xsl:param name="rootHtmlDoc"/>
+<xsl:param name="topicPath"/>
+<xsl:param name="topicNameParam"/>
+<xsl:param name="shortFilename"/>
+<xsl:param name="dv_vals"/>
+<xsl:param name="dv_attr"/>
+<xsl:param name="rootHtmlDoc"/>
 
+
+<!--
+    <xsl:template match="@*|node()">
+        <xsl:copy>
+        <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
+    -->
 
     <xsl:template match="topic">
         <xsl:copy>
@@ -22,34 +31,13 @@
     </xsl:template>
 
 
-    <xsl:template match="*[@conref]">
-          <xsl:element name="conrefWrapper">
-              <xsl:attribute name="reference"><xsl:value-of select="@conref"/></xsl:attribute>
-          </xsl:element>
-    </xsl:template>
-
-    <xsl:template match="keyword">
-        <xsl:element name="keyword">
-            <xsl:attribute name="keyref"><xsl:value-of select="@keyref"/></xsl:attribute>
-        </xsl:element>
-    </xsl:template>
 
 
-    <xsl:template match="ph">
-        <xsl:choose>
-            <xsl:when test="@keyref">
-                <xsl:element name="keyword">
-                    <xsl:attribute name="keyref"><xsl:value-of select="@keyref"/></xsl:attribute>
-                </xsl:element>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:element name="ph">
-                    <xsl:apply-templates/>
-                </xsl:element>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-
+<xsl:template match="*[@conref]">    
+	  <xsl:element name="conrefWrapper">
+	      <xsl:attribute name="reference"><xsl:value-of select="@conref"/></xsl:attribute>
+	  </xsl:element>
+</xsl:template>
 
 
 
@@ -107,16 +95,17 @@
     </xsl:template>
 
 
-    <xsl:template match="shortdesc">
-        <xsl:element name="p">
-            <xsl:apply-templates/>
-        </xsl:element>
-    </xsl:template>
+<xsl:template match="shortdesc">
+    <xsl:element name="p">
+        <xsl:apply-templates/>
+    </xsl:element>
+</xsl:template>
 
-    <!-- For the body, must decide whether this is a dynamic or static resource
+    <!-- FOr the body, must decide whether this is a dynamic or static resource
     topic in the API doc.  For dynamic, convert it into a sand box. -->
 
     <xsl:template match="body" name="topic.body">
+
         <xsl:choose>
             <xsl:when test="../@props='resource'"> <!-- Body for an API resource topic -->
                 <xsl:choose>
@@ -267,6 +256,10 @@
 
     <xsl:template match="example" >
         <xsl:if test="not(../../@outputclass='dynamic')">
+            <!--
+            <xsl:if test="../../@outputclass='static'">
+            <xsl:if test="../../@outputclass[not('static')]">
+            -->
             <xsl:element name="br"/>
             <h4>Example:</h4>
             <xsl:apply-templates/>
@@ -280,23 +273,30 @@
     <!-- ============== END API DOC STUFF =================== -->
 
 
+
+
+
     <!-- paragraphs -->
     <xsl:template match="p">
         <!-- To ensure XHTML validity, need to determine whether the DITA kids are block elements.
              If so, use div_class="p" instead of p -->
         <xsl:choose>
             <xsl:when test="descendant::pre or
-                descendant::ul or
-                descendant::sl or
-                descendant::ol or
-                descendant::lq or
-                descendant::dl or
-                descendant::note or
-                descendant::lines or
-                descendant::fig or
-                descendant::table or
-                descendant::simpletable">
+       descendant::ul or
+       descendant::sl or
+       descendant::ol or
+       descendant::lq or
+       descendant::dl or
+       descendant::note or
+       descendant::lines or
+       descendant::fig or
+       descendant::table or
+       descendant::simpletable">
                 <div class="p">
+                    <!--
+                      <xsl:call-template name="setid"/>
+                      <xsl:apply-templates select="." mode="outputContentsWithFlagsAndStyle"/>
+                      -->
                     <xsl:apply-templates/>
                 </div>
             </xsl:when>
@@ -314,6 +314,15 @@
                             <b>NOTE: </b>
                         </xsl:when>
                     </xsl:choose>
+                    <!--
+                      <xsl:call-template name="setid"/>
+                      <xsl:apply-templates select="." mode="outputContentsWithFlagsAndStyle"/>
+                         <xsl:copy-of select="."/>
+                      <xsl:value-of select="."/>
+                      -->
+                    <!--
+                       <xsl:apply-templates mode="do_text"/>
+                       -->
                     <xsl:apply-templates/>
                 </p>
             </xsl:otherwise>
@@ -326,6 +335,7 @@
         <xsl:apply-templates/>
         <hr/>
     </xsl:template>
+
 
 
     <xsl:template match="ul">
@@ -344,6 +354,8 @@
     </xsl:template>
 
 
+
+
     <!-- list item -->
     <xsl:template match="li">
         <xsl:element name="li">
@@ -358,6 +370,7 @@
     </xsl:template>
 
 
+
     <xsl:template match="codeblock">
         <div class = "codeblock">
             <xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
@@ -370,11 +383,68 @@
 
 
     <!-- ======================================== -->
-    <!-- Tables... -->
+<!-- Tables... -->
 
 
     <xsl:template match="table">
+
         <xsl:call-template name="dotable"/>
+        <!-- special case for IE & NS for frame & no rules - needs to be a double table -->
+        <!--
+        <xsl:variable name="colsep">
+          <xsl:choose>
+            <xsl:when test="@colsep">
+              <xsl:value-of select="@colsep"/>
+            </xsl:when>
+          </xsl:choose>
+        </xsl:variable>
+
+        <xsl:variable name="rowsep">
+          <xsl:choose>
+            <xsl:when test="@rowsep">
+              <xsl:value-of select="@rowsep"/>
+            </xsl:when>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:choose>
+          <xsl:when test="@frame='all' and $colsep='0' and $rowsep='0'">
+            <table cellpadding="4" cellspacing="0" border="1" class="tableborder">
+              <tr>
+                <td>
+                  <xsl:call-template name="dotable"/>
+                </td>
+              </tr>
+            </table>
+          </xsl:when>
+          <xsl:when test="@frame='top' and $colsep='0' and $rowsep='0'">
+            <hr />
+            <xsl:call-template name="dotable"/>
+          </xsl:when>
+          <xsl:when test="@frame='bot' and $colsep='0' and $rowsep='0'">
+            <xsl:call-template name="dotable"/>
+            <hr />
+          </xsl:when>
+          <xsl:when test="@frame='topbot' and $colsep='0' and $rowsep='0'">
+            <hr />
+            <xsl:call-template name="dotable"/>
+            <hr />
+          </xsl:when>
+          <xsl:when test="not(@frame) and $colsep='0' and $rowsep='0'">
+            <table cellpadding="4" cellspacing="0" border="1" class="tableborder">
+              <tr>
+                <td>
+                  <xsl:call-template name="dotable"/>
+                </td>
+              </tr>
+            </table>
+          </xsl:when>
+          <xsl:otherwise>
+            <div class="tablenoborder">
+              <xsl:call-template name="dotable"/>
+            </div>
+          </xsl:otherwise>
+        </xsl:choose>
+        -->
     </xsl:template>
 
 
@@ -390,6 +460,30 @@
                     <xsl:when test="@rowsep"><xsl:value-of select="@rowsep"/></xsl:when>
                 </xsl:choose>
             </xsl:variable>
+            <!--
+            <xsl:call-template name="setid"/>
+            -->
+            <!--
+            <xsl:call-template name="setscale"/>
+            -->
+            <!-- When a table's width is set to page or column, force it's width to 100%. If it's in a list, use 90%.
+                 Otherwise, the table flows to the content -->
+            <!--
+            <xsl:choose>
+             <xsl:when test="(@expanse='page' or @pgwide='1')and (ancestor::*[contains(@class,' topic/li ')] or ancestor::*[contains(@class,' topic/dd ')] )">
+              <xsl:attribute name="width">90%</xsl:attribute>
+             </xsl:when>
+             <xsl:when test="(@expanse='column' or @pgwide='0') and (ancestor::*[contains(@class,' topic/li ')] or ancestor::*[contains(@class,' topic/dd ')] )">
+              <xsl:attribute name="width">90%</xsl:attribute>
+             </xsl:when>
+             <xsl:when test="(@expanse='page' or @pgwide='1')">
+              <xsl:attribute name="width">100%</xsl:attribute>
+             </xsl:when>
+             <xsl:when test="(@expanse='column' or @pgwide='0')">
+              <xsl:attribute name="width">100%</xsl:attribute>
+             </xsl:when>
+            </xsl:choose>
+            -->
             <xsl:choose>
                 <xsl:when test="@frame='all' and $colsep='0' and $rowsep='0'">
                     <xsl:attribute name="border">0</xsl:attribute>
@@ -443,14 +537,24 @@
                     <xsl:attribute name="rules">all</xsl:attribute>
                 </xsl:otherwise>
             </xsl:choose>
+            <!--
+            <xsl:call-template name="place-tbl-lbl"/>
+            -->
+            <!-- title and desc are processed elsewhere -->
             <xsl:apply-templates select="tgroup"/>
         </table>
+        <!--
+        <xsl:call-template name="end-flags-and-rev"><xsl:with-param name="flagrules" select="$flagrules"/></xsl:call-template>
+        -->
     </xsl:template>
+
 
 
     <xsl:template match="tgroup" name="topic.tgroup">
         <xsl:apply-templates/>
     </xsl:template>
+
+
 
 
     <xsl:template match="thead" name="topic.thead">
@@ -542,6 +646,9 @@
 
     <xsl:template match="entry" name="topic.entry">
         <xsl:choose>
+            <!--
+                <xsl:when test="parent::*/parent::*thead">
+                -->
             <xsl:when test="parent::*/parent::thead">
                 <xsl:call-template name="topic.thead_entry"/>
             </xsl:when>
@@ -565,6 +672,8 @@
 
     <!-- do body entries -->
     <xsl:template name="topic.tbody_entry">
+        <!--
+          -->
         <td>
             <xsl:variable name="span_size">
                 <xsl:call-template name="find-entry-span"/>
@@ -573,6 +682,8 @@
             <xsl:call-template name="doentry"/>
         </td>
     </xsl:template>
+
+
 
 
     <xsl:template name="doentry">
@@ -589,6 +700,9 @@
 
 
 
+
+
+
     <xsl:template name="find-entry-span">
 
         <xsl:variable name="startpos">
@@ -598,6 +712,15 @@
             <xsl:call-template name="find-entry-end-position"/>
         </xsl:variable>
         <xsl:value-of select="($endpos - $startpos) + 1"/>
+        <!--
+        <xsl:when test="$startpos &lt; $endpos">
+            <xsl:value-of select="($endpos - $startpos) + 1"/>
+        </xsl:when>
+        <otherwise><xsl:value-of select="1"/></otherwise>
+        -->
+        <!-- If endpos is > startpos, get the diff plus one... -->
+
+
     </xsl:template>
 
 
@@ -614,19 +737,32 @@
 
             <!-- If there is a defined column name, check the colspans to determine position -->
             <xsl:when test="@colname">
+                <!-- count the number of colspans before the one this entry references, plus one -->
+                <!--
+                <xsl:value-of select="number(count(../../../*[contains(@class,' topic/colspec ')][@colname=current()/@colname]/preceding-sibling::*)+1)"/>
+                -->
                 <xsl:value-of select="number(count(../../../colspec[@colname=current()/@colname]/preceding-sibling::*)+1)"/>
             </xsl:when>
 
             <!-- If the starting column is defined, check colspans to determine position -->
             <xsl:when test="@namest">
+                <!--
+                  <xsl:value-of select="number(count(../../../*[contains(@class,' topic/colspec ')][@colname=current()/@namest]/preceding-sibling::*)+1)"/>
+                  -->
                 <xsl:value-of select="number(count(../../../colspec[@colname=current()/@namest]/preceding-sibling::*)+1)"/>
             </xsl:when>
 
             <!-- Need a test for spanspec -->
             <xsl:when test="@spanname">
                 <xsl:variable name="startspan">  <!-- starting column for this span -->
+                    <!--
+                      <xsl:value-of select="../../../*[contains(@class,' topic/spanspec ')][@spanname=current()/@spanname]/@namest"/>
+                      -->
                     <xsl:value-of select="../../../spanspec[@spanname=current()/@spanname]/@namest"/>
                 </xsl:variable>
+                <!--
+                <xsl:value-of select="number(count(../../../*[contains(@class,' topic/colspec ')][@colname=$startspan]/preceding-sibling::*)+1)"/>
+                -->
                 <xsl:value-of select="number(count(../../../colspec[@colname=$startspan]/preceding-sibling::*)+1)"/>
             </xsl:when>
 
@@ -647,12 +783,21 @@
         <xsl:param name="startposition" select="0"/>
         <xsl:choose>
             <xsl:when test="@nameend">
+                <!--
+                  <xsl:value-of select="number(count(../../../*[contains(@class,' topic/colspec ')][@colname=current()/@nameend]/preceding-sibling::*)+1)"/>
+                  -->
                 <xsl:value-of select="number(count(../../../colspec[@colname=current()/@nameend]/preceding-sibling::*)+1)"/>
             </xsl:when>
             <xsl:when test="@spanname">
                 <xsl:variable name="endspan">  <!-- starting column for this span -->
+                    <!--
+                      <xsl:value-of select="../../../*[contains(@class,' topic/spanspec ')][@spanname=current()/@spanname]/@nameend"/>
+                      -->
                     <xsl:value-of select="../../../spanspec[@spanname=current()/@spanname]/@nameend"/>
                 </xsl:variable>
+                <!--
+                <xsl:value-of select="number(count(../../../*[contains(@class,' topic/colspec ')][@colname=$endspan]/preceding-sibling::*)+1)"/>
+                -->
                 <xsl:value-of select="number(count(../../../colspec[@colname=$endspan]/preceding-sibling::*)+1)"/>
             </xsl:when>
             <xsl:otherwise>
@@ -702,11 +847,7 @@
         <xsl:variable name="outputclassStr" select="@outputclass"/>
         <xsl:variable name="hrefStr" select="@href"/>
         <xsl:variable name="externalFunctionStr">
-            <!--
             <xsl:value-of select="$rootHtmlDoc" />#topic=<xsl:value-of select="$topicNameParam"/><xsl:value-of select="@href"/>
-            <xsl:value-of select="$rootHtmlDoc" />#/!<xsl:value-of select="$topicNameParam"/><xsl:value-of select="@href"/>
-            -->
-            <xsl:value-of select="$rootHtmlDoc" />#/!<xsl:value-of select="$topicNameParam"/><xsl:value-of select="@href"/>
         </xsl:variable>
         <xsl:variable name="internalFunctionStr">
             <xsl:value-of select="$rootHtmlDoc" />#topic=<xsl:value-of select="$topicNameParam"/><xsl:value-of select="$shortFilename"/>&amp;hash=<xsl:value-of select="translate(@href, '\#', '')"/>
@@ -756,13 +897,10 @@
             <xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
             <xsl:choose> <!-- Handle refs to graphics from the SVN dir struct, compared to refs from the client HTML shell file -->
                 <xsl:when test="starts-with($temp,'../')">
-                    <!--
                     <xsl:attribute name="src">assets/Doc/<xsl:value-of select="substring-after($temp, '../')"/></xsl:attribute>
-                    -->
-                    <xsl:attribute name="src">../Doc/<xsl:value-of select="substring-after($temp, '../')"/></xsl:attribute>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:attribute name="src">/<xsl:value-of select="$temp"/></xsl:attribute>
+                    <xsl:attribute name="src">assets/Doc/<xsl:value-of select="$temp"/></xsl:attribute>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:element>
@@ -772,19 +910,27 @@
 
 
     <!-- First CHOOSE deletes the given condition. OTHERWISE gets any text out. -->
+    <!--
+-->
+<xsl:template match="text()">
+  <xsl:choose>
+	  <xsl:when test="((preceding-sibling::processing-instruction()[1]) and (starts-with(preceding-sibling::processing-instruction('Fm')[1], 'Condstart')))">
+		  <xsl:variable name="condName">
+		  	<xsl:value-of select="normalize-space(substring-after(preceding-sibling::processing-instruction('Fm')[1], 'Condstart'))" />
+		  </xsl:variable>
+		  <xsl:if test="$condName != 'Deleted' and $condName != 'PrintOnly' and $condName != 'Hidden' "><xsl:value-of select="." /></xsl:if>
+	  </xsl:when>
+	  <xsl:otherwise>
+	  	<xsl:value-of select="." />
+	  </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
 
-    <xsl:template match="text()">
-      <xsl:choose>
-          <xsl:when test="((preceding-sibling::processing-instruction()[1]) and (starts-with(preceding-sibling::processing-instruction('Fm')[1], 'Condstart')))">
-              <xsl:variable name="condName">
-                <xsl:value-of select="normalize-space(substring-after(preceding-sibling::processing-instruction('Fm')[1], 'Condstart'))" />
-              </xsl:variable>
-              <xsl:if test="$condName != 'Deleted' and $condName != 'PrintOnly' and $condName != 'Hidden' "><xsl:value-of select="." /></xsl:if>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="." />
-          </xsl:otherwise>
-      </xsl:choose>
-    </xsl:template>
+
+
+
+
+
+
 
 </xsl:transform>
